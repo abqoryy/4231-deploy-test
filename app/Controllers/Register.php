@@ -56,13 +56,13 @@ class Register extends ResourceController
                 'password_confirmation' => 'required|matches[password]'
             ], [
                 "email" => [
-                    "required" => "Email harus diisi!",
+                    "required" => "Fill the Email",
                 ],
                 "password" => [
-                    "required" => "Anda harus mengisi kata sandi!",
+                    "required" => "Fill the Password",
                 ],
                 "passsword_confirmation" => [
-                    "required" => "Password tidak sama!"
+                    "required" => "Password confirmation not same as your password"
                 ]
             ]);
 

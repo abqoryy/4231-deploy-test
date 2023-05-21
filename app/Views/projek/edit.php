@@ -14,38 +14,46 @@
                             <input type="text" class="form-control" id="name" placeholder="Input team name" name="name" value="<?= $data['name'] ?>" />
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="league">League</label>
                         <div class="col-sm-12 col-md-10">
-                            <select name="league" id="league" class="form-select">
-                                <option value="Premier League" <?= $data['league'] == "Premier League" ? "selected" : "" ?>>Premier League</option>
-                                <option value="La Liga" <?= $data['league'] == "La Liga" ? "selected" : "" ?>>La Liga</option>
-                                <option value="Bundesliga" <?= $data['league'] == "Bundesliga" ? "selected" : "" ?>>BundesLiga</option>
-                                <option value="Serie A"<?= $data['league'] == "Serie A" ? "selected" : "" ?>>Serie A</option>
-                                <option value="Ligue 1" <?= $data['league'] == "Ligue 1" ? "selected" : "" ?>>Ligue 1</option>
-                                <option value="Eredivisie" <?= $data['league'] == "Eredivisie" ? "selected" : "" ?>>Eredivisie</option>
+                            <select name="league" class="form-select" id="league">
+                            <?php 
+                            $leagues = [
+                                'Premier League', 'La Liga', 'Bundesliga', 'Serie A', 'Ligue 1'
+                            ];
+                            
+                            foreach ($leagues as $league) : ?>
+                                <option value="<?= $league?>" <?= ($league == $data['league']) ? 'selected' : ''?>><?= $league?></option>
+                            <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="country">Country</label>
                         <div class="col-sm-12 col-md-10">
-                            <select name="country" id="country" class="form-select">
-                                <option value="England" <?= $data['country'] == "England" ? "selected" : "" ?>>England</option>
-                                <option value="Spain" <?= $data['country'] == "Spain" ? "selected" : "" ?>>Spain</option>
-                                <option value="Germany" <?= $data['country'] == "Germany" ? "selected" : "" ?>>Germany</option>
-                                <option value="Italy" <?= $data['country'] == "Italy" ? "selected" : "" ?>>Italy</option>
-                                <option value="France" <?= $data['country'] == "France" ? "selected" : "" ?>>France</option>
-                                <option value="Netherland" <?= $data['country'] == "Netherland" ? "selected" : "" ?>>Netherland</option>
+                            <select name="league" class="form-select" id="league">
+                                <?php 
+                                $countries = [
+                                    'England', 'Spain', 'Germany', 'Italy', 'France'
+                                ];
+                                
+                                foreach ($countries as $country) : ?>
+                                    <option value="<?= $country ?>" <?= ($country == $data['country']) ? 'selected' : '' ?>><?= $country ?></option>
+                                <?php endforeach; ?>?>
                             </select>
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="players">Players</label>
                         <div class="col-sm-12 col-md-10">
                             <input type="number" min="1"class="form-control" id="players" placeholder="Input total players" name="players" value="<?= $data['players'] ?>" />
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="photo">Photo</label>
                         <div class="col-sm-12 col-md-10">

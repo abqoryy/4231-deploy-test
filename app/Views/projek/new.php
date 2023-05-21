@@ -17,12 +17,14 @@
                     <label class="col-sm-12 col-md-2 col-form-label" for="league">League</label>
                     <div class="col-sm-12 col-md-10">
                         <select name="league" id="league" class="form-select">
-                            <option value="Premier League">Premier League</option>
-                            <option value="La Liga">La Liga</option>
-                            <option value="Bundesliga">BundesLiga</option>
-                            <option value="Serie A">Serie A</option>
-                            <option value="Ligue 1">Ligue 1</option>
-                            <option value="Eredivisie">Eredivisie</option>
+                            <?php 
+                            $leagues = [
+                                'Premier League', 'La Liga', 'Bundesliga', 'Serie A', 'Ligue 1'
+                            ];
+
+                            foreach ($leagues as $league) : ?>
+                                <option value="<?= $league; ?>"><?= $league; ?></option>
+                            <?php endforeach;?>
                         </select>
                     </div>
                 </div>
@@ -32,16 +34,17 @@
                     <label class="col-sm-12 col-md-2 col-form-label" for="country">Country</label>
                     <div class="col-sm-12 col-md-10">
                         <select name="country" id="country" class="form-select">
-                            <option value="England">England</option>
-                            <option value="Spain">Spain</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Italy">Italy</option>
-                            <option value="France">France</option>
-                            <option value="Netherland">Netherland</option>
+                            <?php 
+                            $countries = [
+                                'England', 'Spain', 'Germany', 'Italy', 'France'
+                            ];
+                            
+                            foreach ($countries as $country) : ?>
+                                <option value="<?= $country ?>"><?= $country ?></option>
+                            <?php endforeach;?>  
                         </select>
                     </div>
                 </div>
-
                 
                 <div class="form-group row">
                     <label class="col-sm-12 col-md-2 col-form-label" for="players">Players</label>
@@ -50,7 +53,6 @@
                     </div>
                 </div>
                     
-
                 <div class="form-group row">
                     <label class="col-sm-12 col-md-2 col-form-label"for="photo">Photo</label>
                     <div class="col-sm-12 col-md-10">

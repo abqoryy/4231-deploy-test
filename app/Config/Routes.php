@@ -65,7 +65,7 @@ $routes->group('', ['filter' => 'authMiddleware'], function($routes) {
     $routes->resource('detail');
     $routes->get('/projek', 'Projek::index');
     $routes->get('/detail', 'Detail::index');
-    $routes->post('/transfer', 'Transfer::index');
+    $routes->get('/transfer', 'Transfer::index');
 });
 
 

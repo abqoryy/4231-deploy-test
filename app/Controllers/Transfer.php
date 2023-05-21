@@ -129,6 +129,6 @@ class Transfer extends ResourceController
     public function delete($id = null)
     {
         $this->transferModel->delete($id);
-        return redirect()->to('/projek');
+        return redirect()->to('/transfer');
     }
 }

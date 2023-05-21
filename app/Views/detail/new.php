@@ -1,11 +1,13 @@
 <?= $this->extend('base') ?>
 
 <?= $this->section('content') ?>
+
 <div class="container mt-5">
     <div class="pd-20 card-box mb-30">
         <div class="row mb-4">
             <div class="col-12">
                 <form action="/detail" method="post" enctype="multipart/form-data">
+
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="name">Player Name</label>
                         <div class="col-sm-12 col-md-10">
@@ -16,7 +18,23 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="country">Country</label>
                         <div class="col-sm-12 col-md-10">
-                            <input type="text" class="form-control" id="country" placeholder="Player country" name="country" />
+                        <select name="country" class="form-select" id="country">
+                            <?php 
+                            $countries = [
+                                "Argentina", "Australia", "Austria", "Belgium", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Cameroon",
+                                "Canada", "Chile", "China PR", "Colombia", "Croatia", "Czech Republic", "Denmark", "Ecuador", "Egypt", "England",
+                                "Finland", "France", "Germany", "Ghana", "Greece", "Hungary", "Iceland", "India", "Ireland", "Italy", "Ivory Coast",
+                                "Japan", "Mexico", "Netherlands", "New Zealand", "Northern Ireland", "Norway", "Paraguay", "Peru", "Poland", "Portugal",
+                                "Romania", "Russia", "Saudi Arabia", "Scotland", "Serbia", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain",
+                                "Sweden", "Switzerland", "Turkey", "Ukraine", "United Arab Emirates", "United States", "Uruguay", "Venezuela", "Wales",
+                                "Indonesia"
+                            ];
+                            sort($countries);
+
+                            foreach ($countries as $country) : ?>
+                                <option value="<?= $country; ?>"><?php echo $country; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                         </div>
                     </div>
                     
@@ -31,22 +49,15 @@
                         <label class="col-sm-12 col-md-2 col-form-label" for="position">Position</label>
                         <div class="col-sm-12 col-md-10">
                             <select name="position" class="form-select" id="position">
-                                <option value="ST">ST</option>
-                                <option value="CF">CF</option>
-                                <option value="RW">RW</option>
-                                <option value="LW">LW</option>
-                                <option value="RM">RM</option>
-                                <option value="LM">LM</option>
-                                <option value="CAM">CAM</option>
-                                <option value="CM">CM</option>
-                                <option value="CDM">CDM</option>
-                                <option value="RB">RB</option>
-                                <option value="LB">LB</option>
-                                <option value="CB">CB</option>
-                                <option value="RWB">RWB</option>
-                                <option value="LWB">LWB</option>
-                                <option value="GK">GK</option>
-                                <option value="Coach">Coach</option>
+                            <?php 
+                            $positions = [
+                                'ST', 'CF', 'RW', 'LW', 'RM', 'LM', 'CAM', 'CM', 'CDM',
+                                'RB', 'LB', 'CB', 'RWB', 'LWB', 'GK', 'Coach'
+                            ];
+                            
+                            foreach ($positions as $position) : ?>
+                                <option value="<?= $position; ?>"><?php echo $position; ?></option>
+                            <?php endforeach; ?>?>
                             </select>
                         </div>
                     </div>
@@ -54,18 +65,16 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="team">Team</label>
                         <div  class="col-sm-12 col-md-10">
-                            <select name="team" class="form-select" id="team">
-                                <option value="Manchester City">Manchester City</option>
-                                <option value="Manchester United">Manchester United</option>
-                                <option value="Barcelona">Barcelona</option>
-                                <option value="Real Madrid">Real Madrid</option>
-                                <option value="Bayern Munchen">Bayern Munchen</option>
-                                <option value="Dortmund">Dortmund</option>
-                                <option value="AC Milan">AC Milan</option>
-                                <option value="Inter Milan">Inter Milan</option>
-                                <option value="Paris Saint Germain">Paris Saint Germain</option>
-                                <option value="Marseille">Marseille</option>
-                            </select>
+                        <select name="team" class="form-select" id="team">
+                            <?php
+                            $teams = [
+                                'Manchester City', 'Manchester United', 'Barcelona', 'Real Madrid', 'Bayern Munchen', 
+                                'Dortmund', 'AC Milan', 'Inter Milan', 'Paris Saint Germain', 'Marseille'
+                            ];
+                            foreach ($teams as $team) : ?>
+                                <option value="<?= $team ?>"><?= $team ?></option>
+                            <?php endforeach; ?>
+                        </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -87,5 +96,4 @@
         </div>
     </div>
 </div>
-    
 <?= $this->endSection() ?>

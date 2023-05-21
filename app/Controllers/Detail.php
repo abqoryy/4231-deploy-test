@@ -16,7 +16,7 @@ class Detail extends ResourceController
     {
         $searchTerm = $this->request->getGet('search');
         $detailModel = new DetailModel();
-
+        
         // Perform the search query using the $searchTerm
         $results = $detailModel->searchByName($searchTerm);
 
@@ -150,7 +150,7 @@ class Detail extends ResourceController
         ];
 
         $this->detailModel->update($id, $payload);
-        return redirect()->to('/detail/admin');
+        return redirect()->to('/detail/index');
     }
 
     /**
@@ -161,6 +161,6 @@ class Detail extends ResourceController
     public function delete($id = null)
     {
         $this->detailModel->delete($id);
-        return redirect()->to('/projek');
+        return redirect()->to('/detail');
     }
 }

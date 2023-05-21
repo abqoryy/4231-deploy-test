@@ -16,7 +16,23 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="country">Country</label>
                         <div class="col-sm-12 col-md-10">
-                            <input type="text" class="form-control" id="country" placeholder="Player country" name="country" />
+                        <select name="country" class="form-select" id="country">
+                            <?php 
+                            $countries = [
+                                "Argentina", "Australia", "Austria", "Belgium", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Cameroon",
+                                "Canada", "Chile", "China PR", "Colombia", "Croatia", "Czech Republic", "Denmark", "Ecuador", "Egypt", "England",
+                                "Finland", "France", "Germany", "Ghana", "Greece", "Hungary", "Iceland", "India", "Ireland", "Italy", "Ivory Coast",
+                                "Japan", "Mexico", "Netherlands", "New Zealand", "Northern Ireland", "Norway", "Paraguay", "Peru", "Poland", "Portugal",
+                                "Romania", "Russia", "Saudi Arabia", "Scotland", "Serbia", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain",
+                                "Sweden", "Switzerland", "Turkey", "Ukraine", "United Arab Emirates", "United States", "Uruguay", "Venezuela", "Wales",
+                                "Indonesia"
+                            ];
+                            sort($countries);
+
+                            foreach ($countries as $country) : ?>
+                                <option value="<?= $country; ?>"><?php echo $country; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                         </div>
                     </div>
                     
@@ -30,22 +46,16 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="position">Position</label>
                         <div class="col-sm-12 col-md-10">
-                            <select name="position" class="form-select" id="position">
-                                <option value="ST">ST</option>
-                                <option value="CF">CF</option>
-                                <option value="RW">RW</option>
-                                <option value="LW">LW</option>
-                                <option value="RM">RM</option>
-                                <option value="LM">LM</option>
-                                <option value="CAM">CAM</option>
-                                <option value="CM">CM</option>
-                                <option value="CDM">CDM</option>
-                                <option value="RB">RB</option>
-                                <option value="LB">LB</option>
-                                <option value="CB">CB</option>
-                                <option value="RWB">RWB</option>
-                                <option value="LWB">LWB</option>
-                                <option value="GK">GK</option>
+                        <select name="position" class="form-select" id="position">
+                            <?php 
+                            $positions = [
+                                'ST', 'CF', 'RW', 'LW', 'RM', 'LM', 'CAM', 'CM', 'CDM',
+                                'RB', 'LB', 'CB', 'RWB', 'LWB', 'GK', 'Coach'
+                            ];
+                            
+                            foreach ($positions as $position) : ?>
+                                <option value="<?= $position; ?>"><?php echo $position; ?></option>
+                            <?php endforeach; ?>?>
                             </select>
                         </div>
                     </div>
@@ -56,12 +66,14 @@
                             <input type="text" class="form-control" id="team" placeholder="Current Team" name="team" />
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="previous">Previous Team</label>
                         <div class="col-sm-12 col-md-10">
                             <input type="text" class="form-control" id="previous" placeholder="Previous Team" name="previous" />
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="price">Transfer Fee</label>
                         <div class="col-sm-12 col-md-10">

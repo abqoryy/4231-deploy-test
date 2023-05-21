@@ -15,6 +15,7 @@
                    
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="country">Country</label>
                         <div class="col-sm-12 col-md-10">
@@ -26,30 +27,28 @@
                         <label class="col-sm-12 col-md-2 col-form-label" for="age">Age</label>
                         <div class="col-sm-12 col-md-10">
                             <input type="number" class="form-control" min="1" id="age" placeholder="Player age" name="age" value="<?= $data['age'] ?>" />
-                    
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="position">Position</label>
                         <div class="col-sm-12 col-md-10">
-                            <select name="position" class="form-select" id="position">
-                                <option value="ST" <?= $data['position'] == "ST" ? "selected" : ""?>>ST</option>
-                                <option value="CF" <?= $data['position'] == "CF" ? "selected" : ""?>>CF</option>
-                                <option value="RW" <?= $data['position'] == "RW" ? "selected" : ""?>>RW</option>
-                                <option value="LW" <?= $data['position'] == "LW" ? "selected" : ""?>>LW</option>
-                                <option value="RM" <?= $data['position'] == "RM" ? "selected" : ""?>>RM</option>
-                                <option value="LM" <?= $data['position'] == "LM" ? "selected" : ""?>>LM</option>
-                                <option value="CAM" <?= $data['position'] == "CAM" ? "selected" : ""?>>CAM</option>
-                                <option value="CM" <?= $data['position'] == "CM" ? "selected" : ""?>>CM</option>
-                                <option value="CDM" <?= $data['position'] == "CDM" ? "selected" : ""?>>CDM</option>
-                                <option value="RB" <?= $data['position'] == "RB" ? "selected" : ""?>>RB</option>
-                                <option value="LB" <?= $data['position'] == "LB" ? "selected" : ""?>>LB</option>
-                                <option value="CB" <?= $data['position'] == "CB" ? "selected" : ""?>>CB</option>
-                                <option value="RWB" <?= $data['position'] == "RWB" ? "selected" : ""?>>RWB</option>
-                                <option value="LWB" <?= $data['position'] == "LWB" ? "selected" : ""?>>LWB</option>
-                                <option value="GK" <?= $data['position'] == "GK" ? "selected" : ""?>>GK</option>
-                                <option value="Coach" <?= $data['position'] == "Coach" ? "selected" : ""?>>Coach</option>
+                            <select name="country" class="form-control" id="country">
+                                <?php 
+                                $countries = [
+                                    "Argentina", "Australia", "Austria", "Belgium", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Cameroon",
+                                    "Canada", "Chile", "China PR", "Colombia", "Croatia", "Czech Republic", "Denmark", "Ecuador", "Egypt", "England",
+                                    "Finland", "France", "Germany", "Ghana", "Greece", "Hungary", "Iceland", "India", "Ireland", "Italy", "Ivory Coast",
+                                    "Japan", "Mexico", "Netherlands", "New Zealand", "Northern Ireland", "Norway", "Paraguay", "Peru", "Poland", "Portugal",
+                                    "Romania", "Russia", "Saudi Arabia", "Scotland", "Serbia", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain",
+                                    "Sweden", "Switzerland", "Turkey", "Ukraine", "United Arab Emirates", "United States", "Uruguay", "Venezuela", "Wales",
+                                    "Indonesia"
+                                ];
+                                sort($countries);
+
+                                foreach ($countries as $country) : ?>
+                                    <option value="<?= $country ?>" <?= ($country == old('country')) ? 'selected' : '' ?>><?= $country ?></option>
+                                <?php endforeach; ?> 
                             </select>
                         </div>
                     </div>
@@ -58,8 +57,14 @@
                         <label class="col-sm-12 col-md-2 col-form-label" for="team">Team</label>
                         <div class="col-sm-12 col-md-10">
                             <select name="team" class="form-select" id="team">
-                                <option value="Manchester City" <?= $data['team'] == "Manchester City" ? "selected" : "" ?>>Manchester City</option>
-                                <option value="Manchester United" <?= $data['team'] == "Manchester United" ? "selected" : "" ?>>Manchester United</option>
+                                <?php
+                                $teams = [
+                                    'Manchester City', 'Manchester United', 'Barcelona', 'Real Madrid', 'Bayern Munchen', 
+                                    'Dortmund', 'AC Milan', 'Inter Milan', 'Paris Saint Germain', 'Marseille'
+                                ];
+                                foreach ($teams as $team) : ?>
+                                    <option value="<?php echo $team ?>" <?= ($team == old('team')) ? 'selected' : '' ?>><?php echo $team ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
