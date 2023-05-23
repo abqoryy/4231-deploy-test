@@ -19,7 +19,23 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="country">Country</label>
                         <div class="col-sm-12 col-md-10">
-                            <input type="text" class="form-control" id="country" placeholder="Player country" name="country" value="<?= $data['country'] ?>" />
+                        <select name="country" class="form-select" id="country">
+                            <?php 
+                            $countries = [
+                                "Argentina", "Australia", "Austria", "Belgium", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Cameroon",
+                                "Canada", "Chile", "China PR", "Colombia", "Croatia", "Czech Republic", "Denmark", "Ecuador", "Egypt", "England",
+                                "Finland", "France", "Germany", "Ghana", "Greece", "Hungary", "Iceland", "India", "Ireland", "Italy", "Ivory Coast",
+                                "Japan", "Mexico", "Netherlands", "New Zealand", "Northern Ireland", "Norway", "Paraguay", "Peru", "Poland", "Portugal",
+                                "Romania", "Russia", "Saudi Arabia", "Scotland", "Serbia", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain",
+                                "Sweden", "Switzerland", "Turkey", "Ukraine", "United Arab Emirates", "United States", "Uruguay", "Venezuela", "Wales",
+                                "Indonesia"
+                            ];
+                            sort($countries);
+
+                            foreach ($countries as $country) : ?>
+                                <option value="<?= $country ?>" <?= ($country == $data['country']) ? 'selected' : '' ?>><?= $country ?></option>
+                            <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
 
@@ -33,22 +49,16 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="position">Position</label>
                         <div class="col-sm-12 col-md-10">
-                            <select name="country" class="form-control" id="country">
-                                <?php 
-                                $countries = [
-                                    "Argentina", "Australia", "Austria", "Belgium", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Cameroon",
-                                    "Canada", "Chile", "China PR", "Colombia", "Croatia", "Czech Republic", "Denmark", "Ecuador", "Egypt", "England",
-                                    "Finland", "France", "Germany", "Ghana", "Greece", "Hungary", "Iceland", "India", "Ireland", "Italy", "Ivory Coast",
-                                    "Japan", "Mexico", "Netherlands", "New Zealand", "Northern Ireland", "Norway", "Paraguay", "Peru", "Poland", "Portugal",
-                                    "Romania", "Russia", "Saudi Arabia", "Scotland", "Serbia", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain",
-                                    "Sweden", "Switzerland", "Turkey", "Ukraine", "United Arab Emirates", "United States", "Uruguay", "Venezuela", "Wales",
-                                    "Indonesia"
-                                ];
-                                sort($countries);
-
-                                foreach ($countries as $country) : ?>
-                                    <option value="<?= $country ?>" <?= ($country == old('country')) ? 'selected' : '' ?>><?= $country ?></option>
-                                <?php endforeach; ?> 
+                        <select name="position" class="form-select" id="position">
+                            <?php 
+                            $positions = [
+                                'ST', 'CF', 'RW', 'LW', 'RM', 'LM', 'CAM', 'CM', 'CDM',
+                                'RB', 'LB', 'CB', 'RWB', 'LWB', 'GK', 'Coach'
+                            ];
+                            
+                            foreach ($positions as $position) : ?>
+                                <option value="<?= $position ?>" <?= ($position == $data['position']) ? 'selected' : '' ?>><?= $position ?></option>
+                            <?php endforeach; ?>?>
                             </select>
                         </div>
                     </div>
@@ -63,7 +73,7 @@
                                     'Dortmund', 'AC Milan', 'Inter Milan', 'Paris Saint Germain', 'Marseille'
                                 ];
                                 foreach ($teams as $team) : ?>
-                                    <option value="<?php echo $team ?>" <?= ($team == old('team')) ? 'selected' : '' ?>><?php echo $team ?></option>
+                                    <option value="<?= $team ?>" <?= ($team == $data['team']) ? 'selected' : '' ?>><?= $team ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -80,7 +90,7 @@
                     <div class="form-group row">
                         <label class="col-sm-12 col-md-2 col-form-label" for="photo">Photo</label>
                         <div class="col-sm-12 col-md-10">
-                            <input type="file" class="form-control" id="photo" aria-describedby="photoHelp" name="photo" value="<?= $data['photo'] ?>>
+                            <input type="file" class="form-control" id="photo" aria-describedby="photoHelp" name="photo" value="<?= $data['photo'] ?>">
                             <small id="photoHelp" class="form-text text-muted">Please choose a photo to upload</small>
                             <?php if (!empty($data['photo'])): ?>
                             <div>
