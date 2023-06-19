@@ -29,7 +29,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/4231', 'Projek::home');
+$routes->get('/', 'Projek::home');
 $routes->get('/team', 'Projek::team');
 
 $routes->get('/premier_league', 'Projek::premier_league');
